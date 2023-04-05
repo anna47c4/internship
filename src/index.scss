@@ -1,0 +1,1404 @@
+//STYLING LOGIK:
+//- General styling er øverst
+//- overskrift ved de forskellige ting f.eks. "NAV STYLING"
+// - få generelle steder for desktop adaptions, men primært ligger desktop adaptions i sammenhæng med elementets mobile styling
+
+//VARIABLES//
+///////////////
+// font-family:
+$mulish: "Mulish", Arial, Helvetica, sans-serif; /* Google font linked up in index.html, fallback fonts */
+//colors:
+$color-main-black: #303132;
+$color-main-white: #ffff; //accessibility-vise havde det været bedre med en farve der ikke er helt hvid, men så var der elementer der ikke passede pænt sammen i farvene, så derfor er den helt hvid
+$color-main-blue: #3b4696;
+$color-main-purple: #afb2d7;
+$color-p: #3031329c;
+$color-blue-opacity: #3b4696c0;
+
+//font-size:
+$fontsize-1: 2.488rem;
+$fontsize-2: 2.074rem;
+$fontsize-3: 1.728rem;
+$fontsize-4: 1.44rem;
+$fontsize-5: 1.2rem;
+$fontsize-text: 1rem;
+$fontsize-small: 0.833rem;
+$fontsize-smaller: 0.694rem;
+$fontsize-micro: 0.579rem;
+
+:root {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  color: $color-main-black;
+  background-color: $color-main-white;
+  font-family: $mulish;
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+//så der kan zoomes uden at layoutet bliver mærkeligt
+body {
+  max-width: 2500px;
+  margin: 0 auto;
+}
+
+section {
+  padding-left: 10px;
+  padding-right: 20px;
+  padding-bottom: 50px;
+}
+
+//General button & text styling. Hvis ændringer er nødvendige er der givet en class til de specifikke
+button {
+  border: none;
+  border-radius: 20px;
+  padding: 0.9em 2.2em;
+  font-family: $mulish;
+  font-size: $fontsize-small;
+  background-color: $color-main-blue;
+  cursor: pointer;
+  color: $color-main-white;
+}
+
+h2 {
+  font-size: $fontsize-3;
+  letter-spacing: -1px;
+  font-weight: 700;
+  line-height: 50px;
+  margin-bottom: 0;
+}
+
+p {
+  color: $color-p;
+  line-height: 1.8rem;
+}
+
+.text {
+  text-align: left;
+  margin: 15px;
+  padding: 15px;
+}
+//class der placerer center
+.center-place {
+  display: flex;
+  justify-content: center;
+}
+//class der placerer tekst mm. center
+.center-place-dir {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+// class der placerer tekst mm. center med grid
+.center-place-grid {
+  display: grid;
+  justify-content: center;
+}
+// class der gør udvalgte ord blå
+.color-change {
+  color: $color-main-blue;
+}
+// class der hører til 'back to top' knappen
+.back-to-top {
+  background-color: transparent;
+  position: fixed;
+  right: 3rem;
+  bottom: 7rem;
+  padding: 0.5rem;
+  border: none;
+  cursor: pointer;
+  z-index: 4;
+  transition: opacity 0.5s;
+}
+
+// NAVIGATION STYLING
+///////////////////////
+//delen over navigationen med logo og menupunkter
+.topOnNav {
+  margin: 0;
+  padding: 0;
+  background-color: $color-main-blue;
+  div {
+    img {
+      padding-top: 10px;
+      padding-left: 20px;
+    }
+    button {
+      div.toggle-btn {
+        padding-top: 25px;
+        padding-right: 20px;
+      }
+    }
+  }
+}
+.navigation {
+  background-color: $color-main-blue;
+  a,
+  ul {
+    text-decoration: none;
+    list-style: none;
+    color: $color-main-white;
+  }
+}
+.hamburger,
+.toggle-btn {
+  border-radius: 0px;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  .menuIcon,
+  .closeIcon {
+    color: $color-main-white; //might delete, cuz the items have different color on home & cases
+  }
+}
+//////////////////////STYLING AF HOMEPAGE SECTIONS/////////////////////////////
+/* MOBILE FIRST, DESKTOP TILPASNINGER KOMMER LÆNGERE NEDE MED @media */
+//////////////////////////////////////////////////////////////////////////////
+/////////'HeroSection' PÅ HOMEPAGE/////////
+//test, this .hero-box should only apply on a ger screen
+/* @media (min-width: 767px) {
+  .hero-box {
+    --mask: radial-gradient(
+          261.62px at 50% calc(100% - 351px),
+          #000 99%,
+          #0000 101%
+        )
+        calc(50% - 234px) 0/468px 100%,
+      radial-gradient(261.62px at 50% calc(100% + 234px), #0000 99%, #000 101%)
+        50% calc(100% - 117px) / 468px 100% repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+    height: 80vh;
+  }
+  .second-box {
+    --mask: radial-gradient(167.71px at 50% 225px, #000 99%, #0000 101%)
+        calc(50% - 150px) 0/300px 51% repeat-x,
+      radial-gradient(167.71px at 50% -150px, #0000 99%, #000 101%) 50% 75px/300px
+        calc(51% - 75px) repeat-x,
+      radial-gradient(167.71px at 50% calc(100% - 225px), #000 99%, #0000 101%)
+        calc(50% - 150px) 100%/300px 51% repeat-x,
+      radial-gradient(167.71px at 50% calc(100% + 150px), #0000 99%, #000 101%)
+        50% calc(100% - 75px) / 300px calc(51% - 75px) repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+  }
+} */
+
+.heroSection {
+  background: url("./assets/svg/bg-blue-ol.svg");
+  background-size: cover;
+  background-color: $color-main-blue;
+  padding-bottom: 50px;
+  .heroText {
+    line-height: 41px;
+    letter-spacing: 1px;
+    align-items: baseline;
+    margin: 0px 20px 0px 20px;
+    text-align: left;
+    color: $color-main-white;
+    font-size: $fontsize-4;
+    h1 {
+      font-weight: 800;
+    }
+    p {
+      color: $color-main-white;
+      text-align: left;
+      margin: 0px 20px 0px 20px;
+      font-size: $fontsize-4;
+      padding-top: 0;
+      margin-top: 0;
+    }
+  }
+  .heroImg {
+    margin-top: 20px;
+    img {
+      width: 100%;
+    }
+  }
+  .bm-ico-white {
+    margin-top: -3px;
+    height: 35px;
+    transform: rotate(140deg);
+    margin-right: 10px;
+  }
+}
+
+//'FirstSection' PÅ HOMEPAGE
+.firstSection {
+  padding-bottom: 50px;
+  //Logo carousel styling
+  .slider {
+    margin-top: 30px;
+    padding-bottom: 50px;
+    div.slick-slide {
+      display: flex;
+      justify-content: center;
+    }
+    .caseLogo img {
+      border-radius: 6px; //kan alligevel ikke ses fordi baggrunden er samme farve som billed baggrunden
+    }
+  }
+  button.slick-arrow.slick-next,
+  button.slick-arrow.slick-prev {
+    display: none;
+    visibility: hidden;
+  }
+  .brand-engagement {
+    width: 300px;
+    padding: 10px;
+  }
+  .blueIcon {
+    transform: rotate(140deg);
+    margin-top: -3px;
+    margin-right: 10px;
+  }
+
+  .scratch-win-img {
+    width: 300px;
+    margin-top: 50px;
+  }
+}
+//'SecondSection' PÅ HOMEPAGE
+.wrap {
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+.secondSection {
+  background: url("./assets/svg/purple-bg-01.svg");
+  /*  background-position: 20% 50%; */
+  background-position: 0% 0%;
+
+  div.text {
+    text-align: left;
+    margin: 15px;
+    padding: 15px;
+    vertical-align: baseline;
+    h2 {
+      font-size: $fontsize-3;
+      letter-spacing: 0;
+      font-weight: 700;
+      line-height: 45px;
+      margin-bottom: 0;
+      .color-change {
+        color: $color-main-blue;
+      }
+    }
+    p {
+      color: $color-main-white;
+      line-height: 1.8rem;
+    }
+  }
+  .img {
+    width: 300px;
+    padding-top: 15px;
+  }
+}
+//'ThirdSection' PÅ HOMEPAGE
+.thirdSection {
+  .case-container {
+    .case-examples {
+      div {
+        display: flex;
+        justify-content: center;
+      }
+      .heading-container {
+        h2 {
+          text-align: center;
+          padding-bottom: 30px;
+        }
+      }
+    }
+    .case-videos {
+      .video-logo-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .phone-container {
+          width: 200px;
+          position: relative;
+          margin: 100px;
+        }
+        .phone-container:after {
+          content: "";
+          display: block;
+          background: url(/src/assets/phone.webp);
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          width: 147%;
+          height: 132%;
+          left: -33%;
+          top: -11.5%;
+          position: absolute;
+          z-index: 10;
+        }
+        .phone-container video {
+          position: relative;
+          z-index: 5;
+          width: 100%;
+          display: block;
+        }
+      }
+    }
+  }
+  /*   .case-examples {
+    text-align: center;
+    max-width: 900px;
+  }
+ */
+  .img {
+    width: 300px;
+    padding-top: 15px;
+  }
+}
+
+.fourthSection {
+  background: url("./assets/svg/test-hehe-01.svg");
+  background-position: 0% 80%;
+  .p {
+    color: $color-main-white;
+    font-size: $fontsize-4;
+  }
+  p {
+    color: $color-main-white;
+  }
+  .data-focus {
+    color: $color-main-white;
+    text-align: left;
+    align-self: left;
+    font-size: $fontsize-3;
+    font-weight: 700;
+  }
+  .img,
+  .img2 {
+    width: 300px;
+  }
+}
+//Fifthsection
+.fifthSection {
+  margin: 0;
+  padding: 0;
+  .info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 8px;
+    padding-bottom: 100px;
+
+    .card {
+      background-image: url("./assets/bm-print-true.png");
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      /*    border: 1px solid #3b46961b; */
+      border-radius: 12px;
+      box-shadow: -4px 6px 10px 0px rgba(0, 0, 0, 0.17);
+      -webkit-box-shadow: -4px 6px 10px 0px rgba(0, 0, 0, 0.17);
+      -moz-box-shadow: -4px 6px 10px 0px rgba(0, 0, 0, 0.17);
+      margin: 30px;
+      padding: 20px;
+      img {
+        width: 10%;
+        padding-top: 40px;
+      }
+      h3 {
+        font-weight: 600;
+      }
+      p {
+        color: #3031329c;
+        padding-bottom: 40px;
+      }
+    }
+    .rotate {
+      transform: rotate(-45deg);
+    }
+  }
+  .img {
+    width: 300px;
+  }
+}
+
+//Footer
+footer {
+  background-color: $color-main-black;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  .flex {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    margin-bottom: 0;
+    padding-bottom: 10px;
+    .info1,
+    .info2 {
+      border-bottom: 0.8px solid $color-main-purple;
+      p {
+        color: $color-main-white;
+      }
+    }
+    .info3 {
+      display: flex;
+      gap: 10px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      align-items: baseline;
+      img {
+        cursor: pointer;
+      }
+    }
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+
+    .footer-btn {
+      margin: 10px;
+    }
+  }
+}
+//Footer DESKTOP micro changes
+@media (min-width: 767px) {
+  footer {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+/////////////////////DESKTOP STYLING//////////////////
+//HeroSection HOMEPAGE
+@media (min-width: 767px) {
+  .heroSection {
+    background-position: top;
+    padding: 20px;
+    height: 65vh;
+    .wrap {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      align-items: center;
+    }
+  }
+  .heroText {
+    max-width: 600px;
+    h1 {
+      font-size: 4rem;
+      line-height: 65px;
+      font-weight: 900;
+    }
+  }
+  .heroImg {
+    order: -1;
+    padding-left: 20px;
+  }
+  .bm-ico-white {
+    margin-bottom: 25px;
+  }
+}
+//FirstSection HOMEPAGE
+@media (min-width: 767px) {
+  .firstSection {
+    button {
+      margin-left: 0;
+      align-self: flex-start;
+    }
+    .brand-engagement {
+      width: 500px;
+    }
+    .firstSectionTxt {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      text-align: left;
+      .col1 {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        text-align: left;
+        h2 {
+          font-size: $fontsize-1;
+          font-weight: 800;
+        }
+      }
+    }
+    .firstSectionTxt2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      .col2 {
+        h2 {
+          font-size: $fontsize-1;
+          font-weight: 800;
+        }
+        max-width: 600px;
+        order: 2;
+      }
+      .traffic-leads {
+        display: flex;
+        flex-direction: column;
+        p {
+          color: #333d82;
+        }
+      }
+    }
+    .scratch-win-img {
+      width: 600px;
+    }
+  }
+}
+//SecondSection HOMEPAGE
+@media (min-width: 767px) {
+  .secondSection {
+    .col1 {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .txt {
+        h2 {
+          font-size: $fontsize-1;
+          font-weight: 800;
+        }
+        max-width: 600px;
+      }
+    }
+    .img {
+      width: 500px;
+    }
+    .col2 {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      .heading h2 {
+        font-size: $fontsize-1;
+        font-weight: 800;
+        max-width: 600px;
+      }
+      .heading {
+        order: 1;
+      }
+    }
+  }
+}
+//ThirdSection HOMEPAGE
+@media (min-width: 767px) {
+  .thirdSection {
+    .col1 {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .txt {
+        max-width: 600px;
+        h2 {
+          font-size: $fontsize-1;
+          font-weight: 800;
+        }
+      }
+      .img {
+        width: 500px;
+      }
+    }
+
+    .case-container {
+      display: grid;
+      justify-content: center;
+      width: 100vw;
+      //second part of the thirdSection
+      .case-examples {
+        .heading-container {
+          h2,
+          span {
+            font-size: $fontsize-1;
+            font-weight: 800;
+            line-height: 60px;
+          }
+        }
+      }
+      .case-videos {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        justify-content: center;
+        place-items: center;
+      }
+    }
+  }
+}
+
+//FourthSection HOMEPAGE
+@media (min-width: 767px) {
+  .fourthSection {
+    .col1,
+    .col2 {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .text {
+        max-width: 400px;
+      }
+    }
+    .img-container {
+      order: -1;
+      .img {
+        width: 500px;
+      }
+    }
+    .img2 {
+      width: 500px;
+    }
+  }
+}
+//FifthSection HOMEPAGE
+@media (min-width: 767px) {
+  .fifthSection {
+    .col1 {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .text {
+        max-width: 400px;
+      }
+      .img-container {
+        order: -1;
+        padding-top: 30px;
+        .img {
+          width: 400px;
+        }
+      }
+    }
+  }
+}
+//GENERAL FONT-SIZE CHANGE ON BIG SCREEN
+@media (min-width: 1024px) {
+  .firstSection {
+    .firstSectionTxt {
+      .col1 {
+        max-width: 600px;
+        h2 {
+          font-size: 3rem;
+        }
+      }
+    }
+    .firstSectionTxt2 {
+      .col2 {
+        h2 {
+          font-size: 3rem;
+          padding-bottom: 10px;
+        }
+      }
+    }
+  }
+  .secondSection {
+    .col1 {
+      .txt {
+        h2 {
+          font-size: 3rem;
+          line-height: 60px;
+        }
+      }
+    }
+    .col2 {
+      .heading {
+        h2 {
+          font-size: 3rem;
+          line-height: 60px;
+        }
+      }
+    }
+  }
+  .thirdSection {
+    .col1 {
+      .txt {
+        h2 {
+          font-size: 3rem;
+          line-height: 60px;
+        }
+      }
+    }
+  }
+  .fourthSection {
+    .data-focus {
+      font-size: 2.5rem;
+    }
+  }
+  .fifthSection {
+    .col1 {
+      .text {
+        h2 {
+          font-size: 3rem;
+          line-height: 60px;
+        }
+      }
+      .img-container {
+        .img {
+          width: 550px;
+        }
+      }
+    }
+    .text-wrapper {
+      display: grid;
+      justify-content: center;
+      .text {
+        text-align: center;
+        align-items: center;
+        h2 {
+          font-size: 3rem;
+          line-height: 60px;
+        }
+        p {
+          inline-size: 900px;
+        }
+      }
+    }
+    .info-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    }
+  }
+}
+//////////////////CASE PAGE MOBILE STYLING STARTS HERE//////////////////
+.case-page-wrapper {
+  //heroSection on CASE page
+  .caseHeroSection {
+    /*     background: url("./assets/svg/case-bg-bm2.svg"); */
+    background-image: url(./assets/svg/test-hehe-01.svg);
+    background-size: cover;
+    height: 50vh;
+    background-color: $color-main-blue;
+    .caseHeroText {
+      p {
+        .bm-ico-white {
+          margin-top: -2px;
+          height: 25px;
+          transform: rotate(140deg);
+          margin-right: 6px;
+        }
+        font-size: $fontsize-5;
+        color: $color-main-white;
+        font-style: italic;
+        text-align: center;
+        padding-top: 30px;
+      }
+      h1 {
+        font-size: $fontsize-1;
+        padding-left: 15px;
+        text-align: center;
+        font-weight: 900;
+        line-height: 65px;
+        letter-spacing: -1px;
+        color: $color-main-white;
+      }
+    }
+  }
+  .case-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 10px;
+    padding-bottom: 100px;
+    align-items: bottom;
+
+    .case {
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      border-radius: 12px;
+      box-shadow: -4px 6px 10px 0px rgba(0, 0, 0, 0.17);
+      -webkit-box-shadow: -4px 6px 10px 0px rgba(0, 0, 0, 0.17);
+      -moz-box-shadow: -4px 6px 10px 0px rgba(0, 0, 0, 0.17);
+      margin-right: 50px;
+      margin-left: 30px;
+      margin-top: 30px;
+      padding: 20px;
+      color: $color-main-white;
+      p {
+        color: $color-main-white;
+      }
+      button {
+        vertical-align: bottom;
+        align-self: bottom;
+        margin: auto;
+      }
+    }
+  }
+}
+////// CASE PAGE - DESKTOP ADAPTIONS/////////
+@media (min-width: 767px) {
+  .case-page-wrapper {
+    .caseHeroSection {
+      .caseHeroText {
+        p {
+          .bm-ico-white {
+            margin-bottom: -3px;
+            height: 25px;
+            transform: rotate(140deg);
+            margin-right: 6px;
+          }
+          font-size: $fontsize-4;
+        }
+        h1 {
+          font-size: 3.5rem;
+        }
+      }
+    }
+  }
+}
+//////////////////SOLOPROJECT PAGE MOBILE STYLING STARTS HERE//////////////////
+.soloSection {
+  padding: 0;
+  /*   .top-img {
+    width: 100vw;
+    height: 40vh; 
+     .circklek {
+      object-fit: cover;
+      overflow-clip-margin: unset;
+      overflow: unset;
+    } */
+  .img-data {
+    width: 100%;
+    height: auto;
+  }
+  .top-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    vertical-align: middle;
+
+    .logo {
+      width: fit-content;
+      margin: 0;
+      padding: 0;
+      img {
+        margin: 0 0 20px -20px;
+        width: 150px;
+      }
+      img.arla {
+        width: 100px;
+        margin: 0 0 20px -6px;
+      }
+      img.carlsberg {
+        margin: 0 0 20px -40px;
+      }
+      img.bt {
+        margin: 0 0 20px -40px;
+      }
+    }
+    .story {
+      border-left: 3px solid black;
+      padding: 15px;
+      p {
+        color: $color-main-black;
+        font-size: $fontsize-smaller;
+        font-weight: 400;
+        letter-spacing: 2px;
+      }
+    }
+  }
+  .case-txt {
+    padding: 15px;
+    padding-top: 0;
+    font-size: $fontsize-small;
+    line-height: 30px;
+    letter-spacing: -1px;
+    p {
+      line-height: 28px;
+      letter-spacing: normal;
+    }
+    .break-line {
+      white-space: pre-line; //makes a space in the txt
+    }
+  }
+  .btn {
+    padding: 15px;
+    padding-bottom: 30px;
+  }
+  .numbers {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 50vh;
+    background-color: $color-main-blue;
+  }
+
+  .case-video {
+    .phone-container {
+      width: 200px;
+      position: relative;
+      margin: 100px;
+    }
+    .phone-container:after {
+      content: "";
+      display: block;
+      background: url(/src/assets/phone.webp);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 147%;
+      height: 132%;
+      left: -33%;
+      top: -11.5%;
+      position: absolute;
+      z-index: 10;
+    }
+    .phone-container video {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+      display: block;
+    }
+  }
+  .results {
+    margin: 15px;
+    padding: 15px;
+    .ico-txt-group {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      p {
+        color: $color-main-black;
+        font-weight: 700;
+      }
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+  .txt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+  }
+  .logo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 100px;
+    gap: 8px;
+    .big-logo {
+      width: 50%;
+    }
+    .big-logo.arla {
+      width: 30%;
+    }
+  }
+}
+/////SOLOPROJECT DESKTOP STYLES////////
+@media (min-width: 767px) {
+  .soloSection {
+    .top-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      .box {
+        /*   --mask: radial-gradient(
+              93.91px at calc(100% - 126px) 50%,
+              #000 99%,
+              #0000 101%
+            )
+            0 calc(50% - 84px) / 100% 168px,
+          radial-gradient(
+              93.91px at calc(100% + 84px) 50%,
+              #0000 99%,
+              #000 101%
+            )
+            calc(100% - 42px) 50%/100% 168px repeat-y;
+        -webkit-mask: var(--mask);
+        mask: var(--mask); */
+
+        --mask: radial-gradient(
+              190.07px at calc(100% - 255px) 50%,
+              #000 99%,
+              #0000 101%
+            )
+            0 calc(50% - 170px) / 100% 340px,
+          radial-gradient(
+              190.07px at calc(100% + 170px) 50%,
+              #0000 99%,
+              #000 101%
+            )
+            calc(100% - 85px) 50%/100% 340px repeat-y;
+        -webkit-mask: var(--mask);
+        mask: var(--mask);
+      }
+      .danskespil {
+        width: 100%;
+      }
+    }
+    .result-wrapper {
+      display: flex;
+      justify-content: space-evenly;
+      .results {
+        max-width: 500px;
+      }
+    }
+    //top txt font-size adaption
+    .case-txt {
+      h1 {
+        font-size: $fontsize-3;
+        line-height: 42px;
+        letter-spacing: -1px;
+      }
+      p {
+        font-size: $fontsize-text;
+      }
+    }
+    //wrapping the last part of the soloProject page to set a mutual bg color
+    .wrapper {
+      background-color: $color-main-purple;
+    }
+    .txt {
+      display: flex;
+      align-items: center;
+      h2 {
+        max-width: 600px;
+        font-weight: 700;
+        font-size: 35px;
+        line-height: 50px;
+        letter-spacing: -0.7px;
+      }
+      p {
+        font-size: $fontsize-4;
+      }
+    }
+    //the logos in the last section of the soloproject page
+    .logo-container-desk {
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 50px;
+      .inner-container {
+        width: 900px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 8px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: -4px 6px 10px 0px rgba(0, 0, 0, 0.17);
+        -webkit-box-shadow: -4px 6px 10px 0px rgba(0, 0, 0, 0.17);
+        -moz-box-shadow: -4px 6px 10px 0px rgba(0, 0, 0, 0.17);
+        div {
+          width: 200px;
+          height: 200px;
+          background: transparent;
+          margin: 2px;
+          /* test: shared div styles */
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+        //each box. w the logo set as background image to place them in a flex layout
+        .mash {
+          background-image: url(./assets/caseAssets/mash-logo.webp);
+        }
+        .ft {
+          background-image: url(./assets/caseAssets/tiger.webp);
+        }
+        .ds {
+          background-image: url(./assets/caseAssets/ds.webp);
+        }
+        .ck {
+          background-image: url(./assets/caseAssets/ck.webp);
+        }
+        .arla {
+          background-image: url(./assets/caseAssets/arla.webp);
+        }
+        .imerco {
+          background-image: url(./assets/caseAssets/imerco.webp);
+        }
+        .bt {
+          background-image: url(./assets/caseAssets/bt.webp);
+        }
+        .cb {
+          background-image: url(./assets/caseAssets/carlsberg.webp);
+        }
+      }
+    }
+  }
+}
+//////////////CONTACT PAGE MOBILESTYLING STARTS HERE////////////
+.contactSection {
+  display: grid;
+  background-image: url("./assets/bm-print-true.png");
+  background-size: cover;
+  grid-gap: 8px;
+  margin: 0;
+  padding: 0;
+
+  form {
+    background-color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 6px;
+    padding-bottom: 50px;
+    /*     margin: 0 0 2rem; */
+    fieldset {
+      border: 0;
+      padding: 0;
+      margin: 2rem 0;
+      text-align: left;
+      .form-control {
+        display: grid;
+        label {
+          font-weight: 700;
+          line-height: 1;
+          margin-top: 15px;
+          margin-bottom: 15px;
+          display: grid;
+          gap: 5px;
+        }
+        input,
+        textarea {
+          font-family: $mulish;
+          -webkit-appearance: none;
+          appearance: none;
+          /*       padding: 8px 12px 10px; */
+          padding: 15px;
+          margin-bottom: 8px;
+          outline: none;
+          caret-color: $color-main-blue;
+          background-color: #d4d5e06a;
+          border: none;
+          /*  border-bottom: 0.8px solid black; */
+          border-radius: 4px;
+          box-shadow: -4px 6px 10px 0px rgba(0, 0, 0, 0.17);
+          -webkit-box-shadow: -4px 6px 10px 0px rgba(0, 0, 0, 0.17);
+          -moz-box-shadow: -4px 6px 10px 0px rgba(0, 0, 0, 0.17);
+        }
+        //the little checkbox
+        #my-id {
+          appearance: normal;
+        }
+        //pseudoselectors on form
+        textarea:focus,
+        input:focus {
+          background-color: #3b46965d;
+        }
+
+        input:-webkit-autofill {
+          transition: 5000s background 0s !important;
+        }
+        /*    input[type="name"]:valid {
+          background-color: rgba(87, 183, 87, 0.472);
+        }
+        input[type="email"]:valid {
+          background-color: rgba(87, 183, 87, 0.472);
+        }
+        textarea:valid {
+          background-color: rgba(87, 183, 87, 0.472);
+        } */
+      }
+    }
+    //privacy policy group - bottom of formular
+    .form-control-check {
+      margin-top: 20px;
+      label {
+        font-size: $fontsize-small;
+        color: $color-p;
+        font-weight: 700;
+        line-height: 27px;
+      }
+      a {
+        text-decoration: none;
+        color: $color-main-blue;
+      }
+      a:hover {
+        font-weight: 700;
+      }
+      input[type="checkbox"] {
+        cursor: pointer;
+        margin-right: 6px;
+      }
+      input[type="checkbox"]:checked {
+        accent-color: $color-main-blue;
+      }
+    }
+    //submit form btn
+    button {
+      margin-top: 15px;
+      align-self: baseline;
+    }
+    //submitted message styling
+    .submitMsg {
+      color: $color-main-blue;
+      font-weight: 900;
+    }
+  }
+  //top section of contact page
+  .box {
+    display: grid;
+    justify-content: center;
+    /*     background-image: url("./assets/bm-print-true.png");
+    background-size: cover; */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 30vh;
+
+    p {
+      margin: 0;
+      color: $color-main-black;
+      text-align: center;
+    }
+    //"heading" - let's work together
+    .p-top {
+      font-size: $fontsize-2;
+      padding: 20px;
+      padding-top: 30px;
+      font-weight: 900;
+    }
+    .p-bottom {
+      padding: 20px;
+
+      font-size: $fontsize-text;
+      span {
+        color: $color-main-blue;
+        font-style: italic;
+      }
+    }
+  }
+}
+///////CONTACT PAGE - DESKTOP ADAPTIONS////////
+@media (min-width: 767px) {
+  .contactSection {
+    width: 100vw;
+    .form-wrapper {
+      display: grid;
+      justify-content: center;
+      width: 100vw;
+      form {
+        max-width: 800px;
+      }
+    }
+    .box {
+      .p-top {
+        font-size: $fontsize-1;
+        padding-top: 50px;
+        font-weight: 900;
+      }
+      .p-bottom {
+        font-size: $fontsize-5;
+        inline-size: 800px;
+        padding: 0;
+        span {
+          color: $color-main-blue;
+          font-style: italic;
+        }
+      }
+    }
+  }
+}
+
+////////////////////PRIVACY POLICY MOBILE STYLING////////////////////
+.privacyPol {
+  /*   display: grid;
+  justify-content: center; */
+  .privacy-wrapper {
+    /*    display: grid;
+    max-width: none; */
+    h1 {
+      font-size: $fontsize-2;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    h2 {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    p {
+      line-height: 30px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
+//desktop adaptions for privacy policy
+@media (min-width: 762px) {
+  .privacyPol {
+    display: grid;
+    justify-content: center;
+    .privacy-wrapper {
+      max-width: 900px;
+    }
+  }
+}
+//error page
+.error-page {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  background-image: url(./assets/bg-p.svg);
+  background-size: cover;
+  background-color: $color-main-blue;
+  .heading {
+    h1 {
+      font-size: 3rem;
+      letter-spacing: -1px;
+      font-weight: 700;
+      line-height: 50px;
+      padding-top: 30px;
+    }
+  }
+  .txt {
+    inline-size: 300px;
+    line-height: 1.8rem;
+    height: 100vh;
+    a {
+      text-decoration: none;
+      color: $color-main-blue;
+    }
+    a:hover {
+      font-weight: 700;
+    }
+  }
+  .svg {
+    width: 32px;
+    height: 32px;
+    animation: errorAni 6s ease-in 0s infinite alternate-reverse both;
+    @keyframes errorAni {
+      0% {
+        transform: rotate(0);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
+///desktop adaptions - errorPage///
+@media (min-width: 767px) {
+  .error-page {
+    .heading {
+      h1 {
+        font-size: 5rem;
+        letter-spacing: -1px;
+        font-weight: 700;
+        line-height: 50px;
+        padding-top: 50px;
+      }
+    }
+    svg.svg {
+      width: 68px;
+      height: 68px;
+    }
+    .txt {
+      inline-size: 600px;
+      font-size: $fontsize-5;
+    }
+  }
+}
